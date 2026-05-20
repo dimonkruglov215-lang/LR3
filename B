@@ -1,0 +1,444 @@
+namespace PictureGalleryV2
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        // Основные элементы
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+
+        // Вкладка 1 - Галерея
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.Button btnClear;
+
+        // Вкладка 2 - Коллекция
+        private System.Windows.Forms.ListBox lstCollection;
+        private System.Windows.Forms.Button btnAddToCollection;
+        private System.Windows.Forms.PictureBox picPreview;
+
+        // Вкладка 3 - Слайд-шоу
+        private System.Windows.Forms.ComboBox cboAlbum;
+        private System.Windows.Forms.PictureBox picMain;
+        private System.Windows.Forms.PictureBox picLeft;
+        private System.Windows.Forms.PictureBox picRight;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnForward;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+
+            // Вкладка 1
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.btnClear = new System.Windows.Forms.Button();
+
+            // Вкладка 2
+            this.lstCollection = new System.Windows.Forms.ListBox();
+            this.btnAddToCollection = new System.Windows.Forms.Button();
+            this.picPreview = new System.Windows.Forms.PictureBox();
+
+            // Вкладка 3
+            this.cboAlbum = new System.Windows.Forms.ComboBox();
+            this.picMain = new System.Windows.Forms.PictureBox();
+            this.picLeft = new System.Windows.Forms.PictureBox();
+            this.picRight = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnForward = new System.Windows.Forms.Button();
+
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Size = new System.Drawing.Size(750, 600);
+            this.tabControl1.TabIndex = 0;
+
+            // 
+            // tabPage1 (Галерея)
+            // 
+            this.tabPage1.Text = "1. ГАЛЕРЕЯ";
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Text = "📂 Выбрать файл";
+            this.btnSelect.Location = new System.Drawing.Point(20, 20);
+            this.btnSelect.Size = new System.Drawing.Size(140, 35);
+            this.btnSelect.TabIndex = 0;
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Location = new System.Drawing.Point(20, 65);
+            this.txtFilePath.Size = new System.Drawing.Size(450, 22);
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.TabIndex = 1;
+            // 
+            // picImage
+            // 
+            this.picImage.Location = new System.Drawing.Point(20, 100);
+            this.picImage.Size = new System.Drawing.Size(450, 350);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImage.TabIndex = 2;
+            this.picImage.TabStop = false;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Text = "🗑 Очистить";
+            this.btnClear.Location = new System.Drawing.Point(20, 460);
+            this.btnClear.Size = new System.Drawing.Size(140, 35);
+            this.btnClear.TabIndex = 3;
+            // 
+            this.tabPage1.Controls.Add(this.btnSelect);
+            this.tabPage1.Controls.Add(this.txtFilePath);
+            this.tabPage1.Controls.Add(this.picImage);
+            this.tabPage1.Controls.Add(this.btnClear);
+
+            // 
+            // tabPage2 (Коллекция)
+            // 
+            this.tabPage2.Text = "2. КОЛЛЕКЦИЯ";
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            // 
+            // lstCollection
+            // 
+            this.lstCollection.Location = new System.Drawing.Point(20, 20);
+            this.lstCollection.Size = new System.Drawing.Size(220, 350);
+            this.lstCollection.TabIndex = 0;
+            // 
+            // btnAddToCollection
+            // 
+            this.btnAddToCollection.Text = "+ Добавить в коллекцию";
+            this.btnAddToCollection.Location = new System.Drawing.Point(20, 380);
+            this.btnAddToCollection.Size = new System.Drawing.Size(220, 35);
+            this.btnAddToCollection.TabIndex = 1;
+            // 
+            // picPreview
+            // 
+            this.picPreview.Location = new System.Drawing.Point(260, 20);
+            this.picPreview.Size = new System.Drawing.Size(350, 350);
+            this.picPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPreview.TabIndex = 2;
+            this.picPreview.TabStop = false;
+            // 
+            this.tabPage2.Controls.Add(this.lstCollection);
+            this.tabPage2.Controls.Add(this.btnAddToCollection);
+            this.tabPage2.Controls.Add(this.picPreview);
+
+            // 
+            // tabPage3 (Слайд-шоу)
+            // 
+            this.tabPage3.Text = "3. СЛАЙД-ШОУ";
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            // 
+            // cboAlbum
+            // 
+            this.cboAlbum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAlbum.Location = new System.Drawing.Point(20, 20);
+            this.cboAlbum.Size = new System.Drawing.Size(200, 24);
+            this.cboAlbum.TabIndex = 0;
+            // 
+            // picMain
+            // 
+            this.picMain.Location = new System.Drawing.Point(20, 60);
+            this.picMain.Size = new System.Drawing.Size(450, 320);
+            this.picMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picMain.TabIndex = 1;
+            this.picMain.TabStop = false;
+            // 
+            // picLeft
+            // 
+            this.picLeft.Location = new System.Drawing.Point(20, 400);
+            this.picLeft.Size = new System.Drawing.Size(100, 75);
+            this.picLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLeft.TabIndex = 2;
+            this.picLeft.TabStop = false;
+            // 
+            // picRight
+            // 
+            this.picRight.Location = new System.Drawing.Point(370, 400);
+            this.picRight.Size = new System.Drawing.Size(100, 75);
+            this.picRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRight.TabIndex = 3;
+            this.picRight.TabStop = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Text = "◄ Назад";
+            this.btnBack.Location = new System.Drawing.Point(140, 415);
+            this.btnBack.Size = new System.Drawing.Size(80, 35);
+            this.btnBack.TabIndex = 4;
+            // 
+            // btnForward
+            // 
+            this.btnForward.Text = "Вперёд ►";
+            this.btnForward.Location = new System.Drawing.Point(230, 415);
+            this.btnForward.Size = new System.Drawing.Size(80, 35);
+            this.btnForward.TabIndex = 5;
+            // 
+            this.tabPage3.Controls.Add(this.cboAlbum);
+            this.tabPage3.Controls.Add(this.picMain);
+            this.tabPage3.Controls.Add(this.picLeft);
+            this.tabPage3.Controls.Add(this.picRight);
+            this.tabPage3.Controls.Add(this.btnBack);
+            this.tabPage3.Controls.Add(this.btnForward);
+
+            // 
+            // Form1
+            // 
+            this.ClientSize = new System.Drawing.Size(750, 600);
+            this.Controls.Add(this.tabControl1);
+            this.Text = "Картинная галерея (v2)";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.ResumeLayout(false);
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+
+namespace PictureGalleryV2
+{
+    public partial class Form1 : Form
+    {
+        // Переменные для слайд-шоу
+        private List<string> currentAlbum = new List<string>();
+        private int currentPos = -1;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            // Настраиваем список альбомов
+            cboAlbum.Items.Add("Летние фото");
+            cboAlbum.Items.Add("Зимние фото");
+            cboAlbum.Items.Add("Городские фото");
+            cboAlbum.SelectedIndex = 0;
+            LoadAlbum(cboAlbum.SelectedItem.ToString());
+
+            // Подписываем события
+            btnSelect.Click += BtnSelect_Click;
+            btnClear.Click += BtnClear_Click;
+            btnAddToCollection.Click += BtnAddToCollection_Click;
+            lstCollection.SelectedIndexChanged += LstCollection_SelectedIndexChanged;
+            cboAlbum.SelectedIndexChanged += CboAlbum_SelectedIndexChanged;
+            btnBack.Click += BtnBack_Click;
+            btnForward.Click += BtnForward_Click;
+            picLeft.Click += PicLeft_Click;
+            picRight.Click += PicRight_Click;
+            this.FormClosing += Form1_FormClosing;
+        }
+
+        // ========== ВКЛАДКА 1: ГАЛЕРЕЯ ==========
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "Картинки|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                dlg.Title = "Выберите изображение";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txtFilePath.Text = dlg.FileName;
+                    picImage.Image?.Dispose();
+                    picImage.Image = Image.FromFile(dlg.FileName);
+                }
+            }
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            if (picImage.Image != null)
+            {
+                picImage.Image.Dispose();
+                picImage.Image = null;
+            }
+            txtFilePath.Text = "";
+        }
+
+        // ========== ВКЛАДКА 2: КОЛЛЕКЦИЯ ==========
+        private void BtnAddToCollection_Click(object sender, EventArgs e)
+        {
+            string folder = Path.Combine(Application.StartupPath, "my_collection");
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
+
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "Картинки|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                dlg.Title = "Выберите картинку для коллекции";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    string name = Path.GetFileName(dlg.FileName);
+                    string dest = Path.Combine(folder, name);
+                    if (!File.Exists(dest))
+                        File.Copy(dlg.FileName, dest);
+                    if (!lstCollection.Items.Contains(name))
+                        lstCollection.Items.Add(name);
+                }
+            }
+        }
+
+        private void LstCollection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstCollection.SelectedItem != null)
+            {
+                string name = lstCollection.SelectedItem.ToString();
+                string path = Path.Combine(Application.StartupPath, "my_collection", name);
+                if (File.Exists(path))
+                {
+                    picPreview.Image?.Dispose();
+                    picPreview.Image = Image.FromFile(path);
+                }
+            }
+        }
+
+        // ========== ВКЛАДКА 3: СЛАЙД-ШОУ ==========
+        private void CboAlbum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAlbum(cboAlbum.SelectedItem.ToString());
+        }
+
+        private void LoadAlbum(string albumName)
+        {
+            string folder = "";
+            if (albumName == "Летние фото") folder = "album_summer";
+            else if (albumName == "Зимние фото") folder = "album_winter";
+            else if (albumName == "Городские фото") folder = "album_city";
+
+            string fullPath = Path.Combine(Application.StartupPath, folder);
+            if (Directory.Exists(fullPath))
+            {
+                currentAlbum.Clear();
+                string[] exts = { "*.jpg", "*.jpeg", "*.png", "*.bmp", "*.gif" };
+                foreach (string ext in exts)
+                {
+                    currentAlbum.AddRange(Directory.GetFiles(fullPath, ext));
+                }
+                if (currentAlbum.Count > 0)
+                {
+                    currentPos = 0;
+                    ShowPicture(currentPos);
+                }
+                else
+                {
+                    currentPos = -1;
+                    picMain.Image = null;
+                    picLeft.Image = null;
+                    picRight.Image = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Папка не найдена: " + fullPath);
+            }
+        }
+
+        private void ShowPicture(int index)
+        {
+            if (index < 0 || index >= currentAlbum.Count) return;
+
+            // Основное фото
+            picMain.Image?.Dispose();
+            picMain.Image = Image.FromFile(currentAlbum[index]);
+
+            // Левое (предыдущее)
+            int leftIdx = index - 1;
+            if (leftIdx >= 0)
+            {
+                picLeft.Image?.Dispose();
+                picLeft.Image = Image.FromFile(currentAlbum[leftIdx]);
+                picLeft.Visible = true;
+            }
+            else
+            {
+                picLeft.Image = null;
+                picLeft.Visible = false;
+            }
+
+            // Правое (следующее)
+            int rightIdx = index + 1;
+            if (rightIdx < currentAlbum.Count)
+            {
+                picRight.Image?.Dispose();
+                picRight.Image = Image.FromFile(currentAlbum[rightIdx]);
+                picRight.Visible = true;
+            }
+            else
+            {
+                picRight.Image = null;
+                picRight.Visible = false;
+            }
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            if (currentPos > 0)
+            {
+                currentPos--;
+                ShowPicture(currentPos);
+            }
+        }
+
+        private void BtnForward_Click(object sender, EventArgs e)
+        {
+            if (currentPos < currentAlbum.Count - 1)
+            {
+                currentPos++;
+                ShowPicture(currentPos);
+            }
+        }
+
+        private void PicLeft_Click(object sender, EventArgs e)
+        {
+            if (currentPos > 0)
+            {
+                currentPos--;
+                ShowPicture(currentPos);
+            }
+        }
+
+        private void PicRight_Click(object sender, EventArgs e)
+        {
+            if (currentPos < currentAlbum.Count - 1)
+            {
+                currentPos++;
+                ShowPicture(currentPos);
+            }
+        }
+
+        // Освобождение ресурсов
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            picImage.Image?.Dispose();
+            picPreview.Image?.Dispose();
+            picMain.Image?.Dispose();
+            picLeft.Image?.Dispose();
+            picRight.Image?.Dispose();
+        }
+    }
+}
