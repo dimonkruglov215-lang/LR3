@@ -1,0 +1,310 @@
+using System;
+using System.Windows.Forms;
+
+namespace DvizhenieFigur
+{
+    internal static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            
+            // Показываем заставку
+            FormZastavka zastavka = new FormZastavka();
+            zastavka.Show();
+            zastavka.Refresh();
+            System.Threading.Thread.Sleep(2000); // Заставка видна 2 секунды
+            
+            // Запускаем главную форму
+            Application.Run(new FormMove());
+        }
+    }
+}
+
+using System;
+using System.Windows.Forms;
+
+namespace DvizhenieFigur
+{
+    public partial class FormMove : Form
+    {
+        public FormMove()
+        {
+            InitializeComponent();
+        }
+
+        // Кнопка "Пуск" - запускает движение картинки
+        private void bt_Pusk_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            timer1.Interval = 10;
+        }
+
+        // Кнопка "Стоп" - останавливает движение картинки
+        private void bt_Stop_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+        }
+
+        // Таймер для движения картинки
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Если картинка доходит до правого края - возвращаем в начало
+            if (image1.Left >= this.ClientSize.Width - image1.Width)
+            {
+                image1.Left = 16;
+            }
+            else
+            {
+                image1.Left = image1.Left + 1;
+            }
+        }
+
+        // Кнопка "Двигатель кругов" - запускает движение кругов
+        private void bt_MoveCircle_Click(object sender, EventArgs e)
+        {
+            timer2.Interval = 10;
+            timer2.Enabled = true;
+        }
+
+        // Кнопка "Остановить круги" - останавливает движение кругов
+        private void bt_StopCircle_Click(object sender, EventArgs e)
+        {
+            timer2.Enabled = false;
+        }
+
+        // Кнопка "Восстановить круги" - возвращает круги в центр
+        private void bt_VosstCircle_Click(object sender, EventArgs e)
+        {
+            // Начальные координаты для всех кругов (центр формы)
+            shape1.Left = 184;
+            shape2.Top = 112;
+            shape3.Left = 184;
+            shape4.Top = 112;
+            shape5.Left = 184;
+            shape5.Top = 112;
+            shape6.Left = 184;
+            shape6.Top = 112;
+            shape7.Left = 184;
+            shape7.Top = 112;
+            shape8.Left = 184;
+            shape8.Top = 112;
+        }
+
+        // Таймер для движения кругов
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            // Четыре круга двигаются к углам (меняется один параметр)
+            shape1.Left = shape1.Left + 1;        // вправо
+            shape2.Top = shape2.Top + 1;          // вниз
+            shape3.Left = shape3.Left - 1;        // влево
+            shape4.Top = shape4.Top - 1;          // вверх
+
+            // Остальные круги двигаются по диагонали
+            shape5.Left = shape5.Left + 1;        // вправо-вниз
+            shape5.Top = shape5.Top + 1;
+            shape6.Left = shape6.Left - 1;        // влево-вниз
+            shape6.Top = shape6.Top + 1;
+            shape7.Left = shape7.Left - 1;        // влево-вверх
+            shape7.Top = shape7.Top - 1;
+            shape8.Left = shape8.Left + 1;        // вправо-вверх
+            shape8.Top = shape8.Top - 1;
+        }
+    }
+}
+
+namespace DvizhenieFigur
+{
+    partial class FormMove
+    {
+        private System.ComponentModel.IContainer components = null;
+        
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.image1 = new System.Windows.Forms.PictureBox();
+            this.bt_Pusk = new System.Windows.Forms.Button();
+            this.bt_Stop = new System.Windows.Forms.Button();
+            this.bt_MoveCircle = new System.Windows.Forms.Button();
+            this.bt_StopCircle = new System.Windows.Forms.Button();
+            this.bt_VosstCircle = new System.Windows.Forms.Button();
+            this.shape1 = new System.Windows.Forms.Panel();
+            this.shape2 = new System.Windows.Forms.Panel();
+            this.shape3 = new System.Windows.Forms.Panel();
+            this.shape4 = new System.Windows.Forms.Panel();
+            this.shape5 = new System.Windows.Forms.Panel();
+            this.shape6 = new System.Windows.Forms.Panel();
+            this.shape7 = new System.Windows.Forms.Panel();
+            this.shape8 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
+            this.SuspendLayout();
+            
+            // Форма
+            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.Text = "Движение фигур";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            
+            // Картинка Image1
+            this.image1.Location = new System.Drawing.Point(16, 24);
+            this.image1.Size = new System.Drawing.Size(105, 105);
+            this.image1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.image1.BackColor = System.Drawing.Color.LightGray;
+            // Чтобы загрузить картинку, раскомментируйте следующую строку и укажите путь:
+            // this.image1.Image = System.Drawing.Image.FromFile("ваша_картинка.jpg");
+            
+            // Кнопка "Пуск"
+            this.bt_Pusk.Location = new System.Drawing.Point(16, 144);
+            this.bt_Pusk.Size = new System.Drawing.Size(105, 33);
+            this.bt_Pusk.Text = "Пуск";
+            this.bt_Pusk.Click += new System.EventHandler(this.bt_Pusk_Click);
+            
+            // Кнопка "Стоп"
+            this.bt_Stop.Location = new System.Drawing.Point(16, 192);
+            this.bt_Stop.Size = new System.Drawing.Size(105, 33);
+            this.bt_Stop.Text = "Стоп";
+            this.bt_Stop.Click += new System.EventHandler(this.bt_Stop_Click);
+            
+            // Кнопка "Двигатель кругов"
+            this.bt_MoveCircle.Location = new System.Drawing.Point(16, 256);
+            this.bt_MoveCircle.Size = new System.Drawing.Size(141, 33);
+            this.bt_MoveCircle.Text = "Двигатель кругов";
+            this.bt_MoveCircle.Click += new System.EventHandler(this.bt_MoveCircle_Click);
+            
+            // Кнопка "Остановить круги"
+            this.bt_StopCircle.Location = new System.Drawing.Point(16, 304);
+            this.bt_StopCircle.Size = new System.Drawing.Size(141, 33);
+            this.bt_StopCircle.Text = "Остановить круги";
+            this.bt_StopCircle.Click += new System.EventHandler(this.bt_StopCircle_Click);
+            
+            // Кнопка "Восстановить круги"
+            this.bt_VosstCircle.Location = new System.Drawing.Point(16, 352);
+            this.bt_VosstCircle.Size = new System.Drawing.Size(141, 33);
+            this.bt_VosstCircle.Text = "Восстановить круги";
+            this.bt_VosstCircle.Click += new System.EventHandler(this.bt_VosstCircle_Click);
+            
+            // Таймеры
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer2.Interval = 10;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            
+            // Круги (Shape1 - Shape8)
+            // Все круги одинакового размера и расположены в центре
+            void SetupShape(Panel shape, System.Drawing.Color color, int left, int top)
+            {
+                shape.Size = new System.Drawing.Size(33, 33);
+                shape.BackColor = color;
+                shape.Location = new System.Drawing.Point(left, top);
+                shape.Region = new System.Drawing.Region(System.Drawing.Drawing2D.GraphicsPath.FromEllipse(new System.Drawing.Rectangle(0, 0, 33, 33)));
+            }
+            
+            SetupShape(this.shape1, System.Drawing.Color.Red, 184, 112);
+            SetupShape(this.shape2, System.Drawing.Color.Blue, 184, 112);
+            SetupShape(this.shape3, System.Drawing.Color.Green, 184, 112);
+            SetupShape(this.shape4, System.Drawing.Color.Yellow, 184, 112);
+            SetupShape(this.shape5, System.Drawing.Color.Purple, 184, 112);
+            SetupShape(this.shape6, System.Drawing.Color.Orange, 184, 112);
+            SetupShape(this.shape7, System.Drawing.Color.Pink, 184, 112);
+            SetupShape(this.shape8, System.Drawing.Color.Cyan, 184, 112);
+            
+            // Добавляем все элементы на форму
+            this.Controls.Add(this.bt_Pusk);
+            this.Controls.Add(this.bt_Stop);
+            this.Controls.Add(this.bt_MoveCircle);
+            this.Controls.Add(this.bt_StopCircle);
+            this.Controls.Add(this.bt_VosstCircle);
+            this.Controls.Add(this.image1);
+            this.Controls.Add(this.shape1);
+            this.Controls.Add(this.shape2);
+            this.Controls.Add(this.shape3);
+            this.Controls.Add(this.shape4);
+            this.Controls.Add(this.shape5);
+            this.Controls.Add(this.shape6);
+            this.Controls.Add(this.shape7);
+            this.Controls.Add(this.shape8);
+            
+            ((System.ComponentModel.ISupportInitialize)(this.image1)).EndInit();
+            this.ResumeLayout(false);
+        }
+        
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox image1;
+        private System.Windows.Forms.Button bt_Pusk;
+        private System.Windows.Forms.Button bt_Stop;
+        private System.Windows.Forms.Button bt_MoveCircle;
+        private System.Windows.Forms.Button bt_StopCircle;
+        private System.Windows.Forms.Button bt_VosstCircle;
+        private System.Windows.Forms.Panel shape1;
+        private System.Windows.Forms.Panel shape2;
+        private System.Windows.Forms.Panel shape3;
+        private System.Windows.Forms.Panel shape4;
+        private System.Windows.Forms.Panel shape5;
+        private System.Windows.Forms.Panel shape6;
+        private System.Windows.Forms.Panel shape7;
+        private System.Windows.Forms.Panel shape8;
+    }
+}
+
+using System.Windows.Forms;
+
+namespace DvizhenieFigur
+{
+    public partial class FormZastavka : Form
+    {
+        public FormZastavka()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+namespace DvizhenieFigur
+{
+    partial class FormZastavka
+    {
+        private System.ComponentModel.IContainer components = null;
+        
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            
+            this.label1.Text = "Добро пожаловать!";
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(80, 80);
+            this.label1.Size = new System.Drawing.Size(240, 40);
+            
+            this.ClientSize = new System.Drawing.Size(400, 200);
+            this.Text = "Заставка";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Controls.Add(this.label1);
+            
+            this.ResumeLayout(false);
+        }
+        
+        private System.Windows.Forms.Label label1;
+    }
+}
